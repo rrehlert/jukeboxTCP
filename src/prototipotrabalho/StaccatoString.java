@@ -24,9 +24,9 @@ public class StaccatoString {
     private final int INSTRUMENTO_MAXIMO = 48;
     private final int INSTRUMENTO_MINIMO = 0;
     
-    private final int VOLUME_MAXIMO = 12000;
-    private final int VOLUME_MINIMO = 500;
-    private final int VOLUME_DEFAULT = 3000;
+    private final int VOLUME_MAXIMO = 127;
+    private final int VOLUME_MINIMO = 32;
+    private final int VOLUME_DEFAULT = 64;
     
     private final int BPM_MINIMO = 30;
     private final int BPM_DEFAULT = 60;
@@ -41,7 +41,7 @@ public class StaccatoString {
         this.sequenciaNotas = "";
     }
     
-    public void aumentaVolume(StaccatoString staccato){
+    public void dobraVolume(StaccatoString staccato){
         if((staccato.volume * 2) >= VOLUME_MAXIMO){
             staccato.volume = VOLUME_MAXIMO;
         }
@@ -120,7 +120,7 @@ public class StaccatoString {
     public String montaStaccatoComAtributos(StaccatoString staccato){
         
         String sequenciaNotasComOitavas = staccato.sequenciaNotas.replace(" ", staccato.oitava + " ");
-        return "T" + staccato.BPM + " V0 I" + staccato.instrumento + " " + sequenciaNotasComOitavas;
+        return ("T" + staccato.BPM + " V0 I" + staccato.instrumento + " :CON(7," + staccato.volume + ")" + " " + sequenciaNotasComOitavas);
     }
     
 }

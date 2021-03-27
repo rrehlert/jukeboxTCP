@@ -5,7 +5,6 @@
  */
 package prototipotrabalho;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class PrototipoTrabalho {
@@ -17,21 +16,16 @@ public class PrototipoTrabalho {
         
         Scanner teclado = new Scanner(System.in);
         System.out.println("Digite o texto a ser convertido em música: ");
-        String input = teclado.nextLine();
+        String inputUsuario = teclado.nextLine();
         
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
-        interpretador.defineInputPrincipal(interpretador, input);
-        
-        List<String> listaDeStaccatos = interpretador.decompoeTextos(interpretador);
+        interpretador.defineTextoInput(interpretador, inputUsuario);
+        String textoMusical = interpretador.geraTextoParametrizado(interpretador);
         
         TocadorDeMusica jukebox = new TocadorDeMusica();
+        jukebox.defineStaccato(jukebox, textoMusical);
+        jukebox.TocaMusica(jukebox);
         
-        for(String staccato : listaDeStaccatos){
-            //System.out.println(staccato);
-            jukebox.defineStringPrincipal(jukebox, staccato);
-            jukebox.TocaMusica(jukebox);
-        }
- 
     }
     
 }

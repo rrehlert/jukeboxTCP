@@ -11,21 +11,21 @@ public class TocadorDeMusica {
     
     //atributos da classe
     
-    private String staccatoPrincipal;
+    private String staccato;
     
     //métodos da classe
     
     public TocadorDeMusica(){
-        this.staccatoPrincipal = "";
+        this.staccato = "";
     }
     
-    public void defineStringPrincipal(TocadorDeMusica jukebox, String staccato){
-        jukebox.staccatoPrincipal = staccato;
+    public void defineStaccato(TocadorDeMusica jukebox, String staccato){
+        jukebox.staccato = staccato;
     }
     
     public void TocaMusica(TocadorDeMusica jukebox){
         Player player = new Player();
-        player.play(jukebox.staccatoPrincipal);
+        player.play(jukebox.staccato);
     }
    
 }

@@ -7,30 +7,62 @@ package prototipotrabalho;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class InterpretadorDeTexto {
     
     //atributos da classe
     
-    private String inputTextoPrincipal;
+    private String textoInput;
     
     //métodos da classe
     
     public InterpretadorDeTexto(){
-        this.inputTextoPrincipal = "";
+        this.textoInput = "";
     }
     
-    public void defineInputPrincipal(InterpretadorDeTexto interpretador, String input){
-        interpretador.inputTextoPrincipal = input;
+    public void defineTextoInput(InterpretadorDeTexto interpretador, String input){
+        interpretador.textoInput = input;
     }
     
-    public List<String> decompoeTextos(InterpretadorDeTexto interpretador){
+    private String randomizaNota(){
         
-        List<String> listaDeStaccatos = new ArrayList<String>();
+        Random geradorDeNumeros = new Random();
+        int numeroAleatorio = geradorDeNumeros.nextInt(6);
+        switch (numeroAleatorio){
+            case 0 -> {
+                return "A ";
+            }
+            case 1 -> {
+                return "B ";
+            }
+            case 2 -> {
+                return "C ";
+            }
+            case 3 -> {
+                return "D ";
+            }
+            case 4 -> {
+                return "E ";
+            }
+            case 5 -> {
+                return "F ";
+            }
+            default -> {
+                return "G ";
+            }
+        }
+    }
+    
+    private List<String> decompoeTextoEmStaccatos(InterpretadorDeTexto interpretador){
+        
+        List<String> listaDeStaccatos = new ArrayList<>();
         StaccatoString staccato = new StaccatoString();
         
-        for(int i = 0; i < interpretador.inputTextoPrincipal.length(); i++){
-            switch (interpretador.inputTextoPrincipal.toLowerCase().charAt(i)){
+        for(int i = 0; i < interpretador.textoInput.length(); i++){
+            
+            switch (interpretador.textoInput.toLowerCase().charAt(i)){
+                
                 case 'a' -> {
                     staccato.adicionaNotas(staccato, "A ");
                     break;
@@ -59,10 +91,53 @@ public class InterpretadorDeTexto {
                     staccato.adicionaNotas(staccato, "G ");
                     break;
                 }
+                case '?' -> {
+                    staccato.adicionaNotas(staccato, randomizaNota());
+                    break;
+                }
                 case '+' -> {
-                    //listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                    //staccato.defineSequenciaDeNotas(staccato, "");
-                    staccato.defineBPM(staccato, 120);
+                    if(i>0){
+                        char caractereAnterior = interpretador.textoInput.toLowerCase().charAt(i-1);
+                        if(caractereAnterior != 't'){
+                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                            staccato.defineSequenciaDeNotas(staccato, "");
+                            staccato.dobraVolume(staccato);
+                        }
+                    }
+                    else{
+                        staccato.dobraVolume(staccato);
+                    }
+                    break;
+                }
+                case '-' -> {
+                    if(i>0){
+                        char caractereAnterior = interpretador.textoInput.toLowerCase().charAt(i-1);
+                        if(caractereAnterior != 't'){
+                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                            staccato.defineSequenciaDeNotas(staccato, "");
+                            staccato.resetaVolume(staccato);
+                        }
+                    }
+                    else{
+                        staccato.dobraVolume(staccato);
+                    }
+                    break;
+                }
+                case 't' -> {
+                    if((i+1) < interpretador.textoInput.length()){
+                        char proximoCaractere = interpretador.textoInput.charAt(i+1);
+                        if (proximoCaractere == '+'){
+                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                            staccato.defineSequenciaDeNotas(staccato, "");
+                            staccato.aumentaOitava(staccato);
+                        }
+                        if (proximoCaractere == '-'){
+                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                            staccato.defineSequenciaDeNotas(staccato, "");
+                            staccato.diminuiOitava(staccato);
+                        }    
+                    }
+                    break;
                 }
                 default -> {
                     continue;
@@ -72,4 +147,18 @@ public class InterpretadorDeTexto {
         listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
         return listaDeStaccatos;
     }
+    
+    public String geraTextoParametrizado(InterpretadorDeTexto interpretador){
+        
+        List<String> listaDeStaccatos = interpretador.decompoeTextoEmStaccatos(interpretador);
+        String textoMusical = "";
+        
+        for(String staccato : listaDeStaccatos){
+            //System.out.println(staccato);
+            textoMusical = textoMusical + staccato;
+        }
+        
+        return textoMusical;
+    }
+    
 }
