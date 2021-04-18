@@ -15,6 +15,14 @@ public class InterpretadorDeTexto {
     
     private String textoInput;
     
+    //constantes da classe
+    
+    private final int CODIGO_HARPSICHORD = 7;
+    private final int CODIGO_TUBULAR_BELLS = 15;
+    private final int CODIGO_CHURCH_ORGAN = 20;
+    private final int CODIGO_PAN_FLUTE = 76;
+    private final int CODIGO_AGOGO = 114;
+    
     //métodos da classe
     
     public InterpretadorDeTexto(){
@@ -61,82 +69,64 @@ public class InterpretadorDeTexto {
         
         for(int i = 0; i < interpretador.textoInput.length(); i++){
             
-            switch (interpretador.textoInput.toLowerCase().charAt(i)){
+            switch (interpretador.textoInput.charAt(i)){
                 
-                case 'a' -> {
+                case 'A' -> {
                     staccato.adicionaNotas(staccato, "A ");
                     break;
                 }
-                case 'b' -> {
+                case 'B' -> {
                     staccato.adicionaNotas(staccato, "B ");
                     break;
                 }
-                case 'c' -> {
+                case 'C' -> {
                     staccato.adicionaNotas(staccato, "C ");
                     break;
                 }
-                case 'd' -> {
+                case 'D' -> {
                     staccato.adicionaNotas(staccato, "D ");
                     break;
                 }
-                case 'e' -> {
+                case 'E' -> {
                     staccato.adicionaNotas(staccato, "E ");
                     break;
                 }
-                case 'f' -> {
+                case 'F' -> {
                     staccato.adicionaNotas(staccato, "F ");
                     break;
                 }
-                case 'g' -> {
+                case 'G' -> {
                     staccato.adicionaNotas(staccato, "G ");
                     break;
                 }
+                case ' ' -> {
+                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                    staccato.defineSequenciaDeNotas(staccato, "");
+                    staccato.dobraVolume(staccato);
+                    break;
+                }
+                case '!' -> {
+                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                    staccato.defineSequenciaDeNotas(staccato, "");
+                    staccato.defineInstrumento(staccato, CODIGO_AGOGO);
+                    break;
+                }
                 case '?' -> {
-                    staccato.adicionaNotas(staccato, randomizaNota());
+                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                    staccato.defineSequenciaDeNotas(staccato, "");
+                    staccato.aumentaOitava(staccato);
                     break;
                 }
-                case '+' -> {
-                    if(i>0){
-                        char caractereAnterior = interpretador.textoInput.toLowerCase().charAt(i-1);
-                        if(caractereAnterior != 't'){
-                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                            staccato.defineSequenciaDeNotas(staccato, "");
-                            staccato.dobraVolume(staccato);
-                        }
-                    }
-                    else{
-                        staccato.dobraVolume(staccato);
-                    }
+                case ';' -> {
+                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                    staccato.defineSequenciaDeNotas(staccato, "");
+                    staccato.defineInstrumento(staccato, CODIGO_PAN_FLUTE);
                     break;
                 }
-                case '-' -> {
-                    if(i>0){
-                        char caractereAnterior = interpretador.textoInput.toLowerCase().charAt(i-1);
-                        if(caractereAnterior != 't'){
-                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                            staccato.defineSequenciaDeNotas(staccato, "");
-                            staccato.resetaVolume(staccato);
-                        }
-                    }
-                    else{
-                        staccato.dobraVolume(staccato);
-                    }
-                    break;
-                }
-                case 't' -> {
-                    if((i+1) < interpretador.textoInput.length()){
-                        char proximoCaractere = interpretador.textoInput.charAt(i+1);
-                        if (proximoCaractere == '+'){
-                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                            staccato.defineSequenciaDeNotas(staccato, "");
-                            staccato.aumentaOitava(staccato);
-                        }
-                        if (proximoCaractere == '-'){
-                            listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                            staccato.defineSequenciaDeNotas(staccato, "");
-                            staccato.diminuiOitava(staccato);
-                        }    
-                    }
+                case ',' -> {
+                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
+                    staccato.defineSequenciaDeNotas(staccato, "");
+                    staccato.defineInstrumento(staccato, CODIGO_CHURCH_ORGAN);
                     break;
                 }
                 default -> {
