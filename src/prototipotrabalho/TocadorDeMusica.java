@@ -27,5 +27,6 @@ public class TocadorDeMusica {
         Player player = new Player();
         player.play(jukebox.staccato);
     }
+   alo;
    
 }
