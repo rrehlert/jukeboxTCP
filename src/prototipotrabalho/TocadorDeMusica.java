@@ -23,9 +23,9 @@ public class TocadorDeMusica {
         jukebox.staccato = staccato;
     }
     
-    public void TocaMusica(TocadorDeMusica jukebox){
+    public void tocaMusica(TocadorDeMusica jukebox){
         Player player = new Player();
         player.play(jukebox.staccato);
     }
-   
+
 }

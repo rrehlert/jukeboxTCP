@@ -28,8 +28,7 @@ public class StaccatoString {
     private final int VOLUME_MINIMO = 31;
     private final int VOLUME_DEFAULT = 63;
     
-    private final int BPM_MINIMO = 30;
-    private final int BPM_DEFAULT = 60;
+    private final int BPM_MINIMO = 60;
     
     //métodos da classe
     
@@ -37,7 +36,7 @@ public class StaccatoString {
         this.oitava = OITAVA_DEFAULT;
         this.instrumento = INSTRUMENTO_MINIMO;
         this.volume = VOLUME_DEFAULT;
-        this.BPM = BPM_DEFAULT;
+        this.BPM = BPM_MINIMO;
         this.sequenciaNotas = "";
     }
     
@@ -67,15 +66,15 @@ public class StaccatoString {
     }
     
     public void aumentaBPM(StaccatoString staccato){
-        staccato.BPM += 30;
+        staccato.BPM += 50;
     }
     
     public void diminuiBPM(StaccatoString staccato){
-        if((staccato.BPM - 30) <= BPM_MINIMO){
+        if((staccato.BPM - 50) <= BPM_MINIMO){
             staccato.BPM = BPM_MINIMO;
         }
         else{
-            staccato.BPM -= 30;
+            staccato.BPM -= 50;
         }
     }
     

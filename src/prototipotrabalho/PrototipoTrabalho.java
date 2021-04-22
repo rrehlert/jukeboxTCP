@@ -15,16 +15,26 @@ public class PrototipoTrabalho {
     public static void main(String[] args) {
         
         Scanner teclado = new Scanner(System.in);
+        
         System.out.println("Digite o texto a ser convertido em música: ");
         String inputUsuario = teclado.nextLine();
+        
+        System.out.println("Deseja fazer a gravação? (NÃO = 0, SIM = 1) ");
+        int gravar = teclado.nextInt();
         
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
         interpretador.defineTextoInput(interpretador, inputUsuario);
         String textoMusical = interpretador.geraTextoParametrizado(interpretador);
         
+        if(gravar == 1){
+            GravadorDeMusica recorder = new GravadorDeMusica();
+            recorder.defineNomeArquivo(recorder, "minhaMusica.mid");
+            recorder.gravaMusica(recorder, textoMusical);
+        }
+        
         TocadorDeMusica jukebox = new TocadorDeMusica();
         jukebox.defineStaccato(jukebox, textoMusical);
-        jukebox.TocaMusica(jukebox);
+        jukebox.tocaMusica(jukebox);
         
     }
     
