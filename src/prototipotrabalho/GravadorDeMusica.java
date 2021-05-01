@@ -12,25 +12,22 @@ import org.jfugue.pattern.Pattern;
 
 public class GravadorDeMusica {
     
-    //atributos da classe
-    
     private String nomeArquivo;
     
-    //métodos da classe
     
     public GravadorDeMusica(){
         this.nomeArquivo = "";
     }
     
-    public void defineNomeArquivo(GravadorDeMusica recorder, String nomeArquivo){
-        recorder.nomeArquivo = nomeArquivo;
+    public void defineNomeArquivo(String nomeArquivo){
+        this.nomeArquivo = nomeArquivo;
     }
    
-    public void gravaMusica(GravadorDeMusica recorder, String staccato){
+    public void gravaMusica(String staccato){
         Pattern pattern = new Pattern(staccato);
         
         try {
-            MidiFileManager.savePatternToMidi(pattern, new File(nomeArquivo));
+            MidiFileManager.savePatternToMidi(pattern, new File(this.nomeArquivo));
         } 
         catch (IOException ex) {}
     }

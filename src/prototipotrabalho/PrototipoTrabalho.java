@@ -23,18 +23,18 @@ public class PrototipoTrabalho {
         int gravar = teclado.nextInt();
         
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
-        interpretador.defineTextoInput(interpretador, inputUsuario);
+        interpretador.defineTextoInput(inputUsuario);
         String textoMusical = interpretador.geraTextoParametrizado(interpretador);
         
         if(gravar == 1){
             GravadorDeMusica recorder = new GravadorDeMusica();
-            recorder.defineNomeArquivo(recorder, "minhaMusica.mid");
-            recorder.gravaMusica(recorder, textoMusical);
+            recorder.defineNomeArquivo("minhaMusica.mid");
+            recorder.gravaMusica(textoMusical);
         }
         
         TocadorDeMusica jukebox = new TocadorDeMusica();
-        jukebox.defineStaccato(jukebox, textoMusical);
-        jukebox.tocaMusica(jukebox);
+        jukebox.defineStaccato(textoMusical);
+        jukebox.tocaMusica();
         
     }
     
