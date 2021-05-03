@@ -24,6 +24,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
      */
     public InterfaceJukebox() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -33,260 +34,269 @@ public class InterfaceJukebox extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()  {
+    private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Abas = new javax.swing.JTabbedPane();
+        abaConversao = new javax.swing.JPanel();
+        TextoDigite = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel5 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        CaixaTexto = new javax.swing.JTextArea();
+        bConverter = new javax.swing.JButton();
+        TextoConfiguracoes = new javax.swing.JLabel();
+        TextoInstrumento = new javax.swing.JLabel();
+        TextoBpm = new javax.swing.JLabel();
+        selInstrumento = new javax.swing.JComboBox<>();
+        selBpm = new javax.swing.JComboBox<>();
+        TextoDownload = new javax.swing.JLabel();
+        bDownload = new javax.swing.JButton();
+        bSelecionar = new javax.swing.JButton();
+        TextoSelecione = new javax.swing.JLabel();
+        CaixaNome = new javax.swing.JTextField();
+        TextoNome = new javax.swing.JLabel();
+        TextoMid = new javax.swing.JLabel();
+        abaHelp = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabMapeamento = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEXTO MUSICAL ♪ - Converte seu texto em uma música!");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Abas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        abaConversao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Digite aqui o texto a ser convertido:");
+        TextoDigite.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TextoDigite.setText("Digite aqui o texto a ser convertido:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(jTextArea1);
+        CaixaTexto.setColumns(20);
+        CaixaTexto.setRows(5);
+        CaixaTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(CaixaTexto);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setText("Converter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bConverter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bConverter.setText("Converter");
+        bConverter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bConverterActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Configurações iniciais:");
+        TextoConfiguracoes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TextoConfiguracoes.setText("Configurações iniciais:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Instrumento");
+        TextoInstrumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TextoInstrumento.setText("Instrumento");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("BPM");
+        TextoBpm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TextoBpm.setText("BPM");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piano", "Violão", "Guitarra", "Violino" }));
+        selInstrumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        selInstrumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piano", "Violão", "Guitarra", "Violino" }));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "40", "70", "100", "130", "160", "190", "220", "250", "280", "310" }));
+        selBpm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        selBpm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "40", "70", "100", "130", "160", "190", "220", "250", "280", "310" }));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Faça o download da sua música:");
+        TextoDownload.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TextoDownload.setText("Faça o download da sua música:");
 
-        jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jToggleButton1.setText("►");
+        bDownload.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bDownload.setText("Download");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton2.setText("Download");
-
-        jButton3.setText("Selecionar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        bSelecionar.setText("Selecionar");
+        bSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                bSelecionarActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Selecione o arquivo a ser convertido:");
+        TextoSelecione.setText("Selecione o arquivo a ser convertido:");
 
-        jLabel7.setText("Nome do arquivo:");
+        TextoNome.setText("Nome do arquivo:");
 
-        jLabel8.setText(".MID");
+        TextoMid.setText(".MID");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout abaConversaoLayout = new javax.swing.GroupLayout(abaConversao);
+        abaConversao.setLayout(abaConversaoLayout);
+        abaConversaoLayout.setHorizontalGroup(
+            abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaConversaoLayout.createSequentialGroup()
+                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaConversaoLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(jButton3)
+                        .addComponent(bSelecionar)
                         .addGap(53, 367, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(abaConversaoLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel4))))
-                                    .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(abaConversaoLayout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TextoInstrumento)
+                                    .addGroup(abaConversaoLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(TextoBpm)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(abaConversaoLayout.createSequentialGroup()
+                                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(selBpm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(selInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(92, 92, 92)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
+                                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(TextoDigite)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(abaConversaoLayout.createSequentialGroup()
                                         .addGap(2, 2, 2)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButton1)
-                                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
+                                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(abaConversaoLayout.createSequentialGroup()
+                                                .addGap(207, 207, 207)
+                                                .addComponent(bConverter))
+                                            .addGroup(abaConversaoLayout.createSequentialGroup()
+                                                .addComponent(TextoNome)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(CaixaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel8)
+                                                .addComponent(TextoMid)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jButton2))))))
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2))
+                                                .addComponent(bDownload))))))
+                            .addComponent(TextoSelecione)
+                            .addComponent(TextoConfiguracoes))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(abaConversaoLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addComponent(jLabel5)
+                .addComponent(TextoDownload)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        abaConversaoLayout.setVerticalGroup(
+            abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaConversaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextoConfiguracoes)
+                    .addComponent(TextoDigite))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaConversaoLayout.createSequentialGroup()
+                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextoInstrumento)
+                            .addComponent(selInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextoBpm)
+                            .addComponent(selBpm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
-                .addComponent(jLabel6)
+                .addComponent(TextoSelecione)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
-                .addGap(27, 27, 27)
-                .addComponent(jLabel5)
+                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bConverter)
+                    .addComponent(bSelecionar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(TextoDownload)
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bDownload)
+                    .addComponent(CaixaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextoNome)
+                    .addComponent(TextoMid))
                 .addGap(26, 26, 26))
         );
 
-        jTabbedPane1.addTab("Conversão", jPanel1);
+        Abas.addTab("Conversão", abaConversao);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabMapeamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"A", "Nota Lá"},
+                {"B", "Nota Si"},
+                {"C", "Nota Dó"},
+                {"D", "Nota Ré"},
+                {"E", "Nota Mi"},
+                {"F", "Nota Fá"},
+                {"G", "Nota Sol"},
+                {"a, b, c, d, e, f, g", "Se caractere anterior era NOTA(A até G), repete nota; Caso contrário, silêncio(pausa)"},
+                {"Espaço", "Aumenta volume para o DOBRO do volume; Se não puder aumentar, voltar ao voluma padrão"},
+                {"!", "Trocar instrumento para o instrumento 114 (Agogo)"},
+                {"O, o, I, i, U, u (vogais)", "Trocar instrumento para o instrumento 7 (Harpsichord)"},
+                {"Consoante (tirando notas)", "Se caractere anterior era NOTA(A até G), repete nota; Caso contrário, silêncio(pausa)"},
+                {"Número", "Trocar instrumento para o instrumento cujo número é igual ao valor do instrumento ATUAL + valor do dígito"},
+                {"?", "Aumenta UMA oitava; Se não puder aumentar volta à oitava defalt (de início)"},
+                {"\n (quebra de linha)", "Trocar instrumento para o instrumento 15 (Tubular Bells)"},
+                {";", "Trocar instrumento para o instrumento 76 (Pan Flute)"},
+                {",", "Trocar instrumento para o instrumento 20 (Church Organ)"},
+                {"ELSE", "Se caractere anterior era NOTA(A até G), repete nota; Caso contrário, silêncio(pausa)"},
+                {"@", "Nota aleatória"},
+                {"+", "Aumenta BPM em 50 unidades (saturar em 310)"},
+                {"-", "Diminui BPM em 50 unidades (saturar em 60)"},
+                {"#", "Trocar instrumento para o instrumento X (Guitarra)"},
+                {"$", "Trocar instrumento para o instrumento 55 (Orquestra)"},
+                {"%", "Diminui Uma oitava; Se não puder diminuir, volta à oitava default(de início)"}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Texto", "Ação"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tabMapeamento.setShowGrid(true);
+        jScrollPane2.setViewportView(tabMapeamento);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout abaHelpLayout = new javax.swing.GroupLayout(abaHelp);
+        abaHelp.setLayout(abaHelpLayout);
+        abaHelpLayout.setHorizontalGroup(
+            abaHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaHelpLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        abaHelpLayout.setVerticalGroup(
+            abaHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaHelpLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Help", jPanel2);
+        Abas.addTab("Help", abaHelp);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(Abas)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(Abas, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)  {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bConverterActionPerformed(java.awt.event.ActionEvent evt)  {//GEN-FIRST:event_bConverterActionPerformed
 
         // TODO add your handling code here:
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
-        interpretador.defineTextoInput(interpretador, jTextArea1.getText());
+        interpretador.defineTextoInput(interpretador, CaixaTexto.getText());
         String textoMusical = interpretador.geraTextoParametrizado(interpretador);
 
         TocadorDeMusica jukebox = new TocadorDeMusica();
         jukebox.defineStaccato(jukebox, textoMusical);
         jukebox.TocaMusica(jukebox);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bConverterActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void bSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSelecionarActionPerformed
         // TODO add your handling code here:
         //jButton3.addActionListener(new ActionListener() {
             //@Override
             //public void actionPerformed(ActionEvent e)  {
                 escolheArquivo txt = new escolheArquivo();
-                jTextArea1.setText(txt.escolhe());
+                CaixaTexto.setText(txt.escolhe());
 
             //}
         //});
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_bSelecionarActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -339,28 +349,26 @@ public class InterfaceJukebox extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane Abas;
+    private javax.swing.JTextField CaixaNome;
+    private javax.swing.JTextArea CaixaTexto;
+    private javax.swing.JLabel TextoBpm;
+    private javax.swing.JLabel TextoConfiguracoes;
+    private javax.swing.JLabel TextoDigite;
+    private javax.swing.JLabel TextoDownload;
+    private javax.swing.JLabel TextoInstrumento;
+    private javax.swing.JLabel TextoMid;
+    private javax.swing.JLabel TextoNome;
+    private javax.swing.JLabel TextoSelecione;
+    private javax.swing.JPanel abaConversao;
+    private javax.swing.JPanel abaHelp;
+    private javax.swing.JButton bConverter;
+    private javax.swing.JButton bDownload;
+    private javax.swing.JButton bSelecionar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JComboBox<String> selBpm;
+    private javax.swing.JComboBox<String> selInstrumento;
+    private javax.swing.JTable tabMapeamento;
     // End of variables declaration//GEN-END:variables
 }
