@@ -278,7 +278,8 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         // TODO add your handling code here:
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
         interpretador.defineTextoInput(interpretador, CaixaTexto.getText());
-        String textoMusical = interpretador.geraTextoParametrizado(interpretador);
+        String textoMusical = interpretador.geraTextoParametrizado(interpretador, selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString());
+
 
         TocadorDeMusica jukebox = new TocadorDeMusica();
         jukebox.defineStaccato(jukebox, textoMusical);
