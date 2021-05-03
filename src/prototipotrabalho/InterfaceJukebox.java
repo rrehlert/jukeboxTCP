@@ -4,6 +4,14 @@
  * and open the template in the editor.
  */
 package prototipotrabalho;
+import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Scanner;
 
 /**
  *
@@ -25,7 +33,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()  {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -100,6 +108,11 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         jButton2.setText("Download");
 
         jButton3.setText("Selecionar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Selecione o arquivo a ser convertido:");
 
@@ -250,14 +263,35 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)  {//GEN-FIRST:event_jButton1ActionPerformed
+
         // TODO add your handling code here:
+        InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
+        interpretador.defineTextoInput(interpretador, jTextArea1.getText());
+        String textoMusical = interpretador.geraTextoParametrizado(interpretador);
+
+        TocadorDeMusica jukebox = new TocadorDeMusica();
+        jukebox.defineStaccato(jukebox, textoMusical);
+        jukebox.TocaMusica(jukebox);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        //jButton3.addActionListener(new ActionListener() {
+            //@Override
+            //public void actionPerformed(ActionEvent e)  {
+                escolheArquivo txt = new escolheArquivo();
+                jTextArea1.setText(txt.escolhe());
+
+            //}
+        //});
+    }//GEN-LAST:event_jButton3ActionPerformed
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
