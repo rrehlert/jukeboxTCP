@@ -61,6 +61,7 @@ public class InterpretadorDeTexto {
         List<String> listaDeStaccatos = new ArrayList<>();
         StaccatoString staccato = new StaccatoString();
         char caractereAtual; int caractereAnterior;
+        int instrumento;
         
         for(int i = 0; i < this.textoInput.length(); i++){
             
@@ -76,44 +77,29 @@ public class InterpretadorDeTexto {
                     staccato.dobraVolume();
                 }
                 case '!' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(CODIGO_AGOGO);
+                    this.trocaInstrumento(CODIGO_GUITARRA, staccato, listaDeStaccatos);
                 }
                 case 'I','i','O','o','U','u' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas(); 
-                    staccato.defineInstrumento(CODIGO_HARPSICHORD);
+                    this.trocaInstrumento(CODIGO_HARPSICHORD, staccato, listaDeStaccatos);
                 }
                 case '\n' ->{
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(CODIGO_TUBULAR_BELLS);
+                    this.trocaInstrumento(CODIGO_TUBULAR_BELLS, staccato, listaDeStaccatos);
                 }
                 case ';' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(CODIGO_PAN_FLUTE);
+                    this.trocaInstrumento(CODIGO_PAN_FLUTE, staccato, listaDeStaccatos);
                 }
                 case ',' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(CODIGO_CHURCH_ORGAN);
+                    this.trocaInstrumento(CODIGO_CHURCH_ORGAN, staccato, listaDeStaccatos);
                 }
                 case '#' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(CODIGO_GUITARRA);
+                    this.trocaInstrumento(CODIGO_GUITARRA, staccato, listaDeStaccatos);
                 }
                 case '$' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(CODIGO_ORQUESTRA);
+                    this.trocaInstrumento(CODIGO_ORQUESTRA, staccato, listaDeStaccatos);
                 }
                 case '0','1','2','3','4','5','6','7','8','9' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
-                    staccato.apagaSequenciaDeNotas();
-                    staccato.defineInstrumento(staccato.retornaInstrumento() + Character.getNumericValue(caractereAtual));
+                    instrumento = staccato.retornaInstrumento() + Character.getNumericValue(caractereAtual);
+                    this.trocaInstrumento(instrumento, staccato, listaDeStaccatos);
                 }
                 case '?' -> {
                     listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
@@ -153,6 +139,16 @@ public class InterpretadorDeTexto {
         }
         listaDeStaccatos.add(staccato.montaStaccatoComAtributos());
         return listaDeStaccatos;
+    }
+    
+    private void resetaStaccato(StaccatoString staccato, List<String> lista){
+        lista.add(staccato.montaStaccatoComAtributos());
+        staccato.apagaSequenciaDeNotas(); 
+    }
+    
+    private void trocaInstrumento(int codigo, StaccatoString staccato, List<String> lista){
+        this.resetaStaccato(staccato, lista);
+        staccato.defineInstrumento(codigo);
     }
     
     public String geraTextoParametrizado(InterpretadorDeTexto interpretador){
