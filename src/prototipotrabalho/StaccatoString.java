@@ -26,7 +26,7 @@ public class StaccatoString {
     private static final int VOLUME_DEFAULT = 63;
     
     private static final int BPM_MINIMO = 60;
-    private static final int BPM_MAXIMO = 300;
+    private static final int BPM_MAXIMO = 210;
     
     
     public StaccatoString(){
@@ -103,6 +103,10 @@ public class StaccatoString {
         }
     }
     
+    public int retornaInstrumento(){
+        return this.instrumento;
+    }
+    
     public void defineInstrumento(int instrumento){
         if((instrumento >= INSTRUMENTO_MINIMO) && (instrumento <= INSTRUMENTO_MAXIMO)){
            this.instrumento = instrumento;
@@ -113,17 +117,21 @@ public class StaccatoString {
         this.sequenciaNotas = "";
     }
     
-    public void adicionaNotas(StaccatoString staccato, String notas){
-        staccato.sequenciaNotas = staccato.sequenciaNotas + notas;
+    public void adicionaNota(char nota){
+        this.sequenciaNotas = this.sequenciaNotas + nota + " ";
     }
     
-    private String adicionaOitavasAsNotas(){
+    public void adicionaPausa(){
+        this.sequenciaNotas = this.sequenciaNotas + "R ";
+    }
+    
+    private String adicionaOitavas(){
         return this.sequenciaNotas.replace(" ", this.oitava + " ");
     }
     
     public String montaStaccatoComAtributos(){
         
-        String sequenciaNotasComOitavas = adicionaOitavasAsNotas();
+        String sequenciaNotasComOitavas = adicionaOitavas();
         return ("T" + this.BPM + " V0 I" + this.instrumento + " :CON(7," + this.volume + ") " + sequenciaNotasComOitavas);
     }
     
