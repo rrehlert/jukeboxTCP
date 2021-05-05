@@ -125,13 +125,13 @@ public class StaccatoString {
         this.sequenciaNotas = this.sequenciaNotas + "R ";
     }
     
-    private String adicionaOitavas(){
+    private String adicionaOitavasNaSequencia(){
         return this.sequenciaNotas.replace(" ", this.oitava + " ");
     }
     
-    public String montaStaccatoComAtributos(){
+    public String geraStringParametrizada(){
         
-        String sequenciaNotasComOitavas = adicionaOitavas();
+        String sequenciaNotasComOitavas = adicionaOitavasNaSequencia();
         return ("T" + this.BPM + " V0 I" + this.instrumento + " :CON(7," + this.volume + ") " + sequenciaNotasComOitavas);
     }
     

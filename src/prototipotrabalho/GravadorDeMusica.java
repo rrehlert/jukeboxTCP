@@ -24,6 +24,7 @@ public class GravadorDeMusica {
     }
    
     public void gravaMusica(String staccato){
+        
         Pattern pattern = new Pattern(staccato);
         
         try {

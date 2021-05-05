@@ -9,9 +9,6 @@ import java.util.Scanner;
 
 public class PrototipoTrabalho {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
         Scanner teclado = new Scanner(System.in);
@@ -24,7 +21,7 @@ public class PrototipoTrabalho {
         
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
         interpretador.defineTextoInput(inputUsuario);
-        String textoMusical = interpretador.geraTextoParametrizado(interpretador);
+        String textoMusical = interpretador.geraTextoParametrizado();
         
         if(gravar == 1){
             GravadorDeMusica recorder = new GravadorDeMusica();
