@@ -36,6 +36,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backColor = new javax.swing.JPanel();
         abas = new javax.swing.JTabbedPane();
         abaConversao = new javax.swing.JPanel();
         textoDigite = new javax.swing.JLabel();
@@ -66,6 +67,8 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         setTitle("TEXTO MUSICAL ♪ - Converte seu texto em uma música!");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+
+        backColor.setBackground(new java.awt.Color(0, 102, 204));
 
         abas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -163,7 +166,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaConversaoLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaConversaoLayout.createSequentialGroup()
                         .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +294,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
             abaHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaHelpLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                 .addContainerGap())
         );
         abaHelpLayout.setVerticalGroup(
@@ -304,15 +307,26 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
         abas.addTab("Help", abaHelp);
 
+        javax.swing.GroupLayout backColorLayout = new javax.swing.GroupLayout(backColor);
+        backColor.setLayout(backColorLayout);
+        backColorLayout.setHorizontalGroup(
+            backColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(abas)
+        );
+        backColorLayout.setVerticalGroup(
+            backColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(abas, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(abas)
+            .addComponent(backColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(abas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -401,6 +415,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
     private javax.swing.JButton bConverter;
     private javax.swing.JButton bDownload;
     private javax.swing.JButton bSelecionar;
+    private javax.swing.JPanel backColor;
     private javax.swing.JTextField caixaNome;
     private javax.swing.JTextArea caixaTexto;
     private javax.swing.JScrollPane jScrollPane1;
