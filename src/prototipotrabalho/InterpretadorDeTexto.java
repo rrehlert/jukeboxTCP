@@ -10,156 +10,64 @@ import java.util.List;
 import java.util.Random;
 
 public class InterpretadorDeTexto {
-
-    //atributos da classe
-
+    
     private String textoInput;
-
-    //constantes da classe
-
+    private final List<String> listaDeStaccatos;
+    
+    
+    private static final int CODIGO_A = 65;
+    private static final int CODIGO_G = 71;
+    private static final int CODIGO_HARPSICHORD = 7;
+    private static final int CODIGO_TUBULAR_BELLS = 15;
+    private static final int CODIGO_CHURCH_ORGAN = 20;
+    private static final int CODIGO_GUITARRA = 24;
+    private static final int CODIGO_ORQUESTRA = 55;
+    private static final int CODIGO_PAN_FLUTE = 76;
+    private static final int CODIGO_AGOGO = 114;
+    
     private final int CODIGO_PIANO = 0;
-    private final int CODIGO_HARPSICHORD = 7;
-    private final int CODIGO_TUBULAR_BELLS = 15;
-    private final int CODIGO_CHURCH_ORGAN = 20;
     private final int CODIGO_VIOLAO = 24;
-    private final int CODIGO_GUITARRA = 26;
     private final int CODIGO_VIOLIN = 40;
-    private final int CODIGO_PAN_FLUTE = 76;
-    private final int CODIGO_AGOGO = 114;
-
-
-    //métodos da classe
-
-    public InterpretadorDeTexto() {
+    
+    
+    public InterpretadorDeTexto(){
         this.textoInput = "";
+        this.listaDeStaccatos = new ArrayList<>();
     }
-
-    public void defineTextoInput(InterpretadorDeTexto interpretador, String input) {
-        interpretador.textoInput = input;
+    
+    public void defineTextoInput(String input){
+        this.textoInput = input;
     }
-
-    private String randomizaNota() {
-
+    
+    private void adicionaStaccatoNaLista(StaccatoString staccato){
+        this.listaDeStaccatos.add(staccato.geraStringParametrizada());
+        staccato.apagaSequenciaDeNotas();
+    }
+    
+    private void apagaLista(){
+        this.listaDeStaccatos.clear();
+    }
+    
+    private boolean notaMusical(int codigoCaractere){
+        return (codigoCaractere >= CODIGO_A) && (codigoCaractere <= CODIGO_G);
+    }
+    
+    private char randomizaNota(){
+        
         Random geradorDeNumeros = new Random();
         int numeroAleatorio = geradorDeNumeros.nextInt(6);
-        switch (numeroAleatorio) {
-            case 0 -> {
-                return "A ";
-            }
-            case 1 -> {
-                return "B ";
-            }
-            case 2 -> {
-                return "C ";
-            }
-            case 3 -> {
-                return "D ";
-            }
-            case 4 -> {
-                return "E ";
-            }
-            case 5 -> {
-                return "F ";
-            }
-            default -> {
-                return "G ";
-            }
+       
+        switch (numeroAleatorio){
+            case 0 -> {return 'A';}
+            case 1 -> {return 'B';}
+            case 2 -> {return 'C';}
+            case 3 -> {return 'D';}
+            case 4 -> {return 'E';}
+            case 5 -> {return 'F';}
+            default -> {return 'G';}
         }
     }
-
-    private List<String> decompoeTextoEmStaccatos(InterpretadorDeTexto interpretador, String bpm, String instrumento) {
-
-        List<String> listaDeStaccatos = new ArrayList<>();
-        StaccatoString staccato = new StaccatoString();
-        int ibpm = Integer.parseInt(bpm);
-        staccato.defineBPM(staccato, ibpm);
-        int iinstrumento = getInstrumentoInicial(instrumento);
-        staccato.defineInstrumento(staccato, iinstrumento);
-
-        for (int i = 0; i < interpretador.textoInput.length(); i++) {
-
-            switch (interpretador.textoInput.charAt(i)) {
-
-                case 'A' -> {
-                    staccato.adicionaNotas(staccato, "A ");
-                    break;
-                }
-                case 'B' -> {
-                    staccato.adicionaNotas(staccato, "B ");
-                    break;
-                }
-                case 'C' -> {
-                    staccato.adicionaNotas(staccato, "C ");
-                    break;
-                }
-                case 'D' -> {
-                    staccato.adicionaNotas(staccato, "D ");
-                    break;
-                }
-                case 'E' -> {
-                    staccato.adicionaNotas(staccato, "E ");
-                    break;
-                }
-                case 'F' -> {
-                    staccato.adicionaNotas(staccato, "F ");
-                    break;
-                }
-                case 'G' -> {
-                    staccato.adicionaNotas(staccato, "G ");
-                    break;
-                }
-                case ' ' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                    staccato.defineSequenciaDeNotas(staccato, "");
-                    staccato.dobraVolume(staccato);
-                    break;
-                }
-                case '!' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                    staccato.defineSequenciaDeNotas(staccato, "");
-                    staccato.defineInstrumento(staccato, CODIGO_AGOGO);
-                    break;
-                }
-                case '?' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                    staccato.defineSequenciaDeNotas(staccato, "");
-                    staccato.aumentaOitava(staccato);
-                    break;
-                }
-                case ';' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                    staccato.defineSequenciaDeNotas(staccato, "");
-                    staccato.defineInstrumento(staccato, CODIGO_PAN_FLUTE);
-                    break;
-                }
-                case ',' -> {
-                    listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-                    staccato.defineSequenciaDeNotas(staccato, "");
-                    staccato.defineInstrumento(staccato, CODIGO_CHURCH_ORGAN);
-                    break;
-                }
-                default -> {
-                    continue;
-                }
-            }
-        }
-        listaDeStaccatos.add(staccato.montaStaccatoComAtributos(staccato));
-        return listaDeStaccatos;
-    }
-
-    public String geraTextoParametrizado(InterpretadorDeTexto interpretador, String bpm, String instrumento) {
-
-        List<String> listaDeStaccatos = interpretador.decompoeTextoEmStaccatos(interpretador, bpm, instrumento);
-        String textoMusical = "";
-
-        for (String staccato : listaDeStaccatos) {
-            //System.out.println(staccato);
-            textoMusical = textoMusical + staccato;
-        }
-
-        return textoMusical;
-    }
-
+    
     private int getInstrumentoInicial(String instrumento) {
         switch (instrumento) {
             case "Piano":
@@ -174,4 +82,105 @@ public class InterpretadorDeTexto {
                 return CODIGO_PIANO;
         }
     }
+    
+    private void decompoeTextoEmStaccatos(String bpm, String instrumento){
+        
+        StaccatoString staccato = new StaccatoString();
+        
+        int ibpm = Integer.parseInt(bpm);
+        staccato.defineBPM(ibpm);
+        int iinstrumento = getInstrumentoInicial(instrumento);
+        staccato.defineInstrumento(iinstrumento);
+        
+        char caractereAtual, caractereAnterior;
+        
+        for(int i = 0; i < this.textoInput.length(); i++){
+            
+            caractereAtual = this.textoInput.charAt(i);
+            switch (caractereAtual){
+                
+                case 'A','B','C','D','E','F','G' -> staccato.adicionaNota(caractereAtual);
+                case '@' -> staccato.adicionaNota(randomizaNota());
+                case ' ' -> {
+                    this.adicionaStaccatoNaLista(staccato); 
+                    staccato.dobraVolume();
+                }
+                case '!' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_AGOGO);
+                }
+                case 'I','i','O','o','U','u' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_HARPSICHORD);
+                }
+                case '\n' ->{
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_TUBULAR_BELLS);
+                }
+                case ';' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_PAN_FLUTE);
+                }
+                case ',' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_CHURCH_ORGAN);
+                }
+                case '#' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_GUITARRA);
+                }
+                case '$' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(CODIGO_ORQUESTRA);
+                }
+                case '0','1','2','3','4','5','6','7','8','9' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.defineInstrumento(staccato.retornaInstrumento() + Character.getNumericValue(caractereAtual));
+                }
+                case '?' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.aumentaOitava();
+                }
+                case '%' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.diminuiOitava();
+                }
+                case '+' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.aumentaBPM();
+                }
+                case '-' -> {
+                    this.adicionaStaccatoNaLista(staccato);
+                    staccato.diminuiBPM();
+                }
+                default -> {
+                    if(i != 0){
+                        caractereAnterior = this.textoInput.charAt(i-1);
+                        if(notaMusical((int)caractereAnterior)){
+                            staccato.adicionaNota(caractereAnterior);
+                            continue;
+                        }
+                    }
+                    staccato.adicionaPausa();
+                }
+            }
+        }
+        this.adicionaStaccatoNaLista(staccato);
+    }
+    
+    public String geraTextoParametrizado(String bpm, String instrumento){
+        
+        this.decompoeTextoEmStaccatos(bpm,instrumento);
+        String textoParametrizado = "";
+        
+        for(String staccato : this.listaDeStaccatos){
+            //System.out.println(staccato);
+            textoParametrizado = textoParametrizado + staccato;
+        }
+        
+        this.apagaLista();
+        
+        return textoParametrizado;
+    }
+    
 }

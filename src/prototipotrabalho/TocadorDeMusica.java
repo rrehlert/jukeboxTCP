@@ -9,23 +9,20 @@ import org.jfugue.player.Player;
 
 public class TocadorDeMusica {
     
-    //atributos da classe
-    
     private String staccato;
     
-    //métodos da classe
     
     public TocadorDeMusica(){
         this.staccato = "";
     }
     
-    public void defineStaccato(TocadorDeMusica jukebox, String staccato){
-        jukebox.staccato = staccato;
+    public void defineStaccato(String staccato){
+        this.staccato = staccato;
     }
     
-    public void TocaMusica(TocadorDeMusica jukebox){
+    public void tocaMusica(){
         Player player = new Player();
-        player.play(jukebox.staccato);
+        player.play(this.staccato);
     }
-   
+
 }

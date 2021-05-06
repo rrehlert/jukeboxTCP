@@ -7,124 +7,132 @@ package prototipotrabalho;
 
 public class StaccatoString {
     
-    //atributos da classe
-    
     private int oitava;
     private int instrumento;
     private int volume;
     private int BPM;
     private String sequenciaNotas;
     
-    //constantes da classe
     
-    private final int OITAVA_MAXIMA = 10;
-    private final int OITAVA_MINIMA = 0;
-    private final int OITAVA_DEFAULT = 5;
+    private static final int OITAVA_MAXIMA = 10;
+    private static final int OITAVA_MINIMA = 0;
+    private static final int OITAVA_DEFAULT = 5;
     
-    private final int INSTRUMENTO_MAXIMO = 127;
-    private final int INSTRUMENTO_MINIMO = 0;
+    private static final int INSTRUMENTO_MAXIMO = 127;
+    private static final int INSTRUMENTO_MINIMO = 0;
     
-    private final int VOLUME_MAXIMO = 127;
-    private final int VOLUME_MINIMO = 31;
-    private final int VOLUME_DEFAULT = 63;
+    private static final int VOLUME_MAXIMO = 127;
+    private static final int VOLUME_MINIMO = 31;
+    private static final int VOLUME_DEFAULT = 63;
     
-    private final int BPM_MINIMO = 30;
-    private final int BPM_DEFAULT = 60;
+    private static final int BPM_MINIMO = 60;
+    private static final int BPM_MAXIMO = 210;
     
-    //métodos da classe
     
     public StaccatoString(){
         this.oitava = OITAVA_DEFAULT;
         this.instrumento = INSTRUMENTO_MINIMO;
         this.volume = VOLUME_DEFAULT;
-        this.BPM = BPM_DEFAULT;
+        this.BPM = BPM_MINIMO;
         this.sequenciaNotas = "";
     }
     
-    private void resetaVolume(StaccatoString staccato){
-        staccato.volume = VOLUME_DEFAULT;
+    private void resetaVolume(){
+        this.volume = VOLUME_DEFAULT;
     }
     
-    public void defineVolume(StaccatoString staccato, int volume){
+    public void defineVolume(int volume){
        if((volume >= VOLUME_MINIMO) && (volume <= VOLUME_MAXIMO)){
-           staccato.volume = volume;
+           this.volume = volume;
        }
     }
     
-    public void dobraVolume(StaccatoString staccato){
-        if((staccato.volume * 2) > VOLUME_MAXIMO){
-            staccato.resetaVolume(staccato);
+    public void dobraVolume(){
+        if((this.volume * 2) > VOLUME_MAXIMO){
+            this.resetaVolume();
         }
         else{
-            staccato.volume *= 2;
+            this.volume *= 2;
         }
     }
     
-    public void defineBPM(StaccatoString staccato, int BPM){
-       if(BPM >= BPM_MINIMO){
-           staccato.BPM = BPM;
+    public void defineBPM(int BPM){
+       if((BPM >= BPM_MINIMO) && (BPM <= BPM_MAXIMO)){
+           this.BPM = BPM;
        }
     }
     
-    public void aumentaBPM(StaccatoString staccato){
-        staccato.BPM += 30;
+    public void aumentaBPM(){
+        this.BPM += 50;
     }
     
-    public void diminuiBPM(StaccatoString staccato){
-        if((staccato.BPM - 30) <= BPM_MINIMO){
-            staccato.BPM = BPM_MINIMO;
+    public void diminuiBPM(){
+        if((this.BPM - 50) <= BPM_MINIMO){
+            this.BPM = BPM_MINIMO;
         }
         else{
-            staccato.BPM -= 30;
+            this.BPM -= 50;
         }
     }
     
-    private void resetaOitava(StaccatoString staccato){
-        staccato.oitava = OITAVA_DEFAULT;
+    private void resetaOitava(){
+        this.oitava = OITAVA_DEFAULT;
     }
     
-    public void defineOitava(StaccatoString staccato, int oitava){
+    public void defineOitava(int oitava){
        if((oitava >= OITAVA_MINIMA) && (oitava <= OITAVA_MAXIMA)){
-           staccato.oitava = oitava;
+           this.oitava = oitava;
        }
     }
     
-    public void aumentaOitava(StaccatoString staccato){
-        if((staccato.oitava + 1) > OITAVA_MAXIMA){
-            staccato.resetaOitava(staccato);
+    public void aumentaOitava(){
+        if((this.oitava + 1) > OITAVA_MAXIMA){
+            this.resetaOitava();
         }
         else{
-            staccato.oitava ++;
+            this.oitava ++;
         }
     }
     
-    public void diminuiOitava(StaccatoString staccato){
-        if((staccato.oitava - 1) <= OITAVA_MINIMA){
-            staccato.oitava = OITAVA_MINIMA;
+    public void diminuiOitava(){
+        if((this.oitava - 1) <= OITAVA_MINIMA){
+            this.oitava = OITAVA_MINIMA;
         }
         else{
-            staccato.oitava --;
+            this.oitava --;
         }
     }
     
-    public void defineInstrumento(StaccatoString staccato, int instrumento){
+    public int retornaInstrumento(){
+        return this.instrumento;
+    }
+    
+    public void defineInstrumento(int instrumento){
         if((instrumento >= INSTRUMENTO_MINIMO) && (instrumento <= INSTRUMENTO_MAXIMO)){
-           staccato.instrumento = instrumento;
-       }
+           this.instrumento = instrumento;
+        }
     }
     
-    public void defineSequenciaDeNotas(StaccatoString staccato, String notas){
-        staccato.sequenciaNotas = notas;
+    public void apagaSequenciaDeNotas(){
+        this.sequenciaNotas = "";
     }
     
-    public void adicionaNotas(StaccatoString staccato, String notas){
-        staccato.sequenciaNotas = staccato.sequenciaNotas + notas;
+    public void adicionaNota(char nota){
+        this.sequenciaNotas = this.sequenciaNotas + nota + " ";
     }
     
-    public String montaStaccatoComAtributos(StaccatoString staccato){
+    public void adicionaPausa(){
+        this.sequenciaNotas = this.sequenciaNotas + "R ";
+    }
+    
+    private String adicionaOitavasNaSequencia(){
+        return this.sequenciaNotas.replace(" ", this.oitava + " ");
+    }
+    
+    public String geraStringParametrizada(){
         
-        String sequenciaNotasComOitavas = staccato.sequenciaNotas.replace(" ", staccato.oitava + " ");
-        return ("T" + staccato.BPM + " V0 I" + staccato.instrumento + " :CON(7," + staccato.volume + ")" + " " + sequenciaNotasComOitavas);
+        String sequenciaNotasComOitavas = adicionaOitavasNaSequencia();
+        return ("T" + this.BPM + " V0 I" + this.instrumento + " :CON(7," + this.volume + ") " + sequenciaNotasComOitavas);
     }
     
 }

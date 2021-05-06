@@ -70,14 +70,17 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
         backColor.setBackground(new java.awt.Color(0, 102, 204));
 
+        abas.setBackground(new java.awt.Color(0, 0, 0));
         abas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        abaConversao.setBackground(new java.awt.Color(18, 231, 231));
+        abaConversao.setBackground(new java.awt.Color(102, 102, 102));
         abaConversao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         textoDigite.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textoDigite.setForeground(new java.awt.Color(204, 204, 204));
         textoDigite.setText("Digite aqui o texto a ser convertido:");
 
+        caixaTexto.setBackground(new java.awt.Color(174, 179, 197));
         caixaTexto.setColumns(20);
         caixaTexto.setRows(5);
         caixaTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -92,12 +95,15 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         });
 
         textoConfiguracoes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textoConfiguracoes.setForeground(new java.awt.Color(204, 204, 204));
         textoConfiguracoes.setText("Configurações iniciais:");
 
         textoInstrumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textoInstrumento.setForeground(new java.awt.Color(204, 204, 204));
         textoInstrumento.setText("Instrumento");
 
         textoBpm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textoBpm.setForeground(new java.awt.Color(204, 204, 204));
         textoBpm.setText("BPM");
 
         selInstrumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -107,10 +113,16 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         selBpm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "40", "70", "100", "130", "160", "190", "220", "250", "280", "310" }));
 
         textoDownload.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textoDownload.setForeground(new java.awt.Color(204, 204, 204));
         textoDownload.setText("Faça o download da sua música:");
 
         bDownload.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bDownload.setText("Download");
+        bDownload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDownloadActionPerformed(evt);
+            }
+        });
 
         bSelecionar.setText("Selecionar");
         bSelecionar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,16 +132,23 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         });
 
         textoSelecione.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textoSelecione.setForeground(new java.awt.Color(204, 204, 204));
         textoSelecione.setText("Ou selecione o arquivo a ser convertido:");
 
+        caixaNome.setBackground(new java.awt.Color(174, 179, 197));
+
+        textoNome.setForeground(new java.awt.Color(204, 204, 204));
         textoNome.setText("Nome do arquivo:");
 
+        textoMid.setForeground(new java.awt.Color(204, 204, 204));
         textoMid.setText(".MID");
 
         textoVolume.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textoVolume.setForeground(new java.awt.Color(204, 204, 204));
         textoVolume.setText("Volume:");
 
         textoOitava.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textoOitava.setForeground(new java.awt.Color(204, 204, 204));
         textoOitava.setText("Oitava:");
 
         selVolume.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -149,7 +168,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                 .addComponent(bSelecionar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bConverter)
-                .addGap(100, 100, 100))
+                .addGap(103, 103, 103))
             .addGroup(abaConversaoLayout.createSequentialGroup()
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(abaConversaoLayout.createSequentialGroup()
@@ -219,7 +238,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bSelecionar)
                     .addComponent(bConverter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(textoDownload)
                 .addGap(18, 18, 18)
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -294,14 +313,14 @@ public class InterfaceJukebox extends javax.swing.JFrame {
             abaHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaHelpLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
                 .addContainerGap())
         );
         abaHelpLayout.setVerticalGroup(
             abaHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaHelpLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -336,13 +355,13 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
-        interpretador.defineTextoInput(interpretador, caixaTexto.getText());
-        String textoMusical = interpretador.geraTextoParametrizado(interpretador, selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString());
+        interpretador.defineTextoInput(caixaTexto.getText());
+        String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString());
 
 
         TocadorDeMusica jukebox = new TocadorDeMusica();
-        jukebox.defineStaccato(jukebox, textoMusical);
-        jukebox.TocaMusica(jukebox);
+        jukebox.defineStaccato(textoMusical);
+        jukebox.tocaMusica();
 
     }//GEN-LAST:event_bConverterActionPerformed
 
@@ -357,6 +376,18 @@ public class InterfaceJukebox extends javax.swing.JFrame {
             //}
         //});
     }//GEN-LAST:event_bSelecionarActionPerformed
+
+    private void bDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDownloadActionPerformed
+        // TODO add your handling code here:
+        InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
+        interpretador.defineTextoInput(caixaTexto.getText());
+        String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString());
+
+        GravadorDeMusica recorder = new GravadorDeMusica();
+        recorder.defineNomeArquivo(caixaNome.getText() + ".mid");
+        recorder.gravaMusica(textoMusical);
+
+    }//GEN-LAST:event_bDownloadActionPerformed
     /**
      * @param args the command line arguments
      */
