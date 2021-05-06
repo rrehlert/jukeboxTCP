@@ -17,10 +17,11 @@ public class PrototipoTrabalho {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Digite o texto a ser convertido em música: ");
         String inputUsuario = teclado.nextLine();
-        
+        String bpm = "100";
+        String instrumento = "Violao";
         InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
         interpretador.defineTextoInput(interpretador, inputUsuario);
-        String textoMusical = interpretador.geraTextoParametrizado(interpretador);
+        String textoMusical = interpretador.geraTextoParametrizado(interpretador, bpm, instrumento);
         
         TocadorDeMusica jukebox = new TocadorDeMusica();
         jukebox.defineStaccato(jukebox, textoMusical);
