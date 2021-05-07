@@ -68,7 +68,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        backColor.setBackground(new java.awt.Color(0, 102, 204));
+        backColor.setBackground(new java.awt.Color(174, 179, 197));
 
         abas.setBackground(new java.awt.Color(0, 0, 0));
         abas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -83,6 +83,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         caixaTexto.setBackground(new java.awt.Color(174, 179, 197));
         caixaTexto.setColumns(20);
         caixaTexto.setRows(5);
+        caixaTexto.setBorder(null);
         caixaTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(caixaTexto);
 
@@ -100,17 +101,18 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
         textoInstrumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         textoInstrumento.setForeground(new java.awt.Color(204, 204, 204));
-        textoInstrumento.setText("Instrumento");
+        textoInstrumento.setText("Instrumento:");
 
         textoBpm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         textoBpm.setForeground(new java.awt.Color(204, 204, 204));
-        textoBpm.setText("BPM");
+        textoBpm.setText("BPM:");
 
         selInstrumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selInstrumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piano", "Violão", "Guitarra", "Violino" }));
+        selInstrumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piano", "Violão", "Guitarra", "Violino", "Agogo", "Orquestra", "Flauta de Pã", "Órgão", "Sinos tubulares", "Cravo" }));
 
         selBpm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selBpm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "40", "70", "100", "130", "160", "190", "220", "250", "280", "310" }));
+        selBpm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "40", "70", "100", "130", "160", "190", "220" }));
+        selBpm.setSelectedIndex(2);
 
         textoDownload.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         textoDownload.setForeground(new java.awt.Color(204, 204, 204));
@@ -163,55 +165,54 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         abaConversao.setLayout(abaConversaoLayout);
         abaConversaoLayout.setHorizontalGroup(
             abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(abaConversaoLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(bSelecionar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bConverter)
-                .addGap(103, 103, 103))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaConversaoLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(textoInstrumento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoOitava)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selOitava, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoBpm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selBpm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoVolume)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
             .addGroup(abaConversaoLayout.createSequentialGroup()
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaConversaoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoDigite)
+                            .addComponent(textoConfiguracoes)
+                            .addComponent(textoSelecione)))
+                    .addGroup(abaConversaoLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(abaConversaoLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(textoNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caixaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textoMid)
-                        .addGap(45, 45, 45)
-                        .addComponent(bDownload))
-                    .addGroup(abaConversaoLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaConversaoLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaConversaoLayout.createSequentialGroup()
-                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoConfiguracoes)
-                            .addComponent(textoDigite)
-                            .addComponent(textoSelecione)
+                        .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(abaConversaoLayout.createSequentialGroup()
-                                .addComponent(textoInstrumento)
+                                .addComponent(bSelecionar)
+                                .addGap(157, 157, 157)
+                                .addComponent(bConverter))
+                            .addGroup(abaConversaoLayout.createSequentialGroup()
+                                .addComponent(textoNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textoOitava)
+                                .addComponent(caixaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selOitava, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textoBpm)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selBpm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textoVolume)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaConversaoLayout.createSequentialGroup()
-                        .addComponent(textoDownload)
-                        .addGap(158, 158, 158))))
+                                .addComponent(textoMid)
+                                .addGap(60, 60, 60)
+                                .addComponent(bDownload))))
+                    .addGroup(abaConversaoLayout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(textoDownload)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaConversaoLayout.setVerticalGroup(
             abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,24 +222,24 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoInstrumento)
-                    .addComponent(selInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoOitava)
                     .addComponent(selOitava, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoBpm)
                     .addComponent(selBpm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoVolume)
-                    .addComponent(selVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(selVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(textoDigite)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addComponent(textoSelecione)
-                .addGap(11, 11, 11)
+                .addGap(18, 18, 18)
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bSelecionar)
                     .addComponent(bConverter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(textoDownload)
                 .addGap(18, 18, 18)
                 .addGroup(abaConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -246,12 +247,12 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                     .addComponent(caixaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoNome)
                     .addComponent(textoMid))
-                .addGap(26, 26, 26))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         abas.addTab("Conversão", abaConversao);
 
-        abaHelp.setBackground(new java.awt.Color(18, 231, 231));
+        abaHelp.setBackground(new java.awt.Color(102, 102, 102));
 
         tabMapeamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -276,8 +277,8 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                 {"Quebra de linha (\\n)", "Troca instrumento para Tubular Bells"},
                 {"Vogais (I,i,O,o,U,u)", "Troca instrumento para Harpsichord"},
                 {"Número", "Trocar instrumento para instrumento ATUAL + valor do dígito"},
-                {"ELSE", "Se caractere anterior era NOTA (A até G): repete nota"},
-                {null, "Caso contrário: pausa "}
+                {"ELSE", "Se caractere anterior era NOTA (A até G), repete nota"},
+                {null, "Caso contrário, pausa "}
             },
             new String [] {
                 "Texto", "Ação"
@@ -386,6 +387,8 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         GravadorDeMusica recorder = new GravadorDeMusica();
         recorder.defineNomeArquivo(caixaNome.getText() + ".mid");
         recorder.gravaMusica(textoMusical);
+        
+        JOptionPane.showMessageDialog(rootPane, "Download concluido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_bDownloadActionPerformed
     /**
