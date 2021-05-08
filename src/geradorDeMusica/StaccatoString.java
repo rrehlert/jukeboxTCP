@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prototipotrabalho;
+package geradorDeMusica;
 
 public class StaccatoString {
     
@@ -12,7 +12,6 @@ public class StaccatoString {
     private int volume;
     private int BPM;
     private String sequenciaNotas;
-    
     
     private static final int OITAVA_MAXIMA = 10;
     private static final int OITAVA_MINIMA = 0;
@@ -103,18 +102,14 @@ public class StaccatoString {
         }
     }
     
-    public int retornaInstrumento(){
-        return this.instrumento;
-    }
-    
     public void defineInstrumento(int instrumento){
         if((instrumento >= INSTRUMENTO_MINIMO) && (instrumento <= INSTRUMENTO_MAXIMO)){
            this.instrumento = instrumento;
         }
     }
     
-    public void apagaSequenciaDeNotas(){
-        this.sequenciaNotas = "";
+    public int retornaInstrumento(){
+        return this.instrumento;
     }
     
     public void adicionaNota(char nota){
@@ -123,6 +118,10 @@ public class StaccatoString {
     
     public void adicionaPausa(){
         this.sequenciaNotas = this.sequenciaNotas + "R ";
+    }
+    
+    public void apagaSequenciaDeNotas(){
+        this.sequenciaNotas = "";
     }
     
     private String adicionaOitavasNaSequencia(){

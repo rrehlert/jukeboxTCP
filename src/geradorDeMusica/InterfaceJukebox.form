@@ -91,22 +91,22 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                           <Component id="textoInstrumento" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="selInstrumento" min="-2" max="-2" attributes="0"/>
+                          <Component id="seletorInstrumento" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="textoOitava" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="selOitava" min="-2" max="-2" attributes="0"/>
+                          <Component id="seletorOitava" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="textoBpm" min="-2" max="-2" attributes="0"/>
+                          <Component id="textoBPM" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="selBpm" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="seletorBPM" min="-2" pref="57" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="textoVolume" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="selVolume" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="seletorVolume" min="-2" pref="57" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -127,18 +127,18 @@
                                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="bSelecionar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botaoSelecionar" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                                          <Component id="bConverter" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botaoConverter" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="textoNome" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textoNomeArquivo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="caixaNome" min="-2" pref="76" max="-2" attributes="0"/>
+                                          <Component id="caixaNomeArquivo" min="-2" pref="76" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="textoMid" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textoMID" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Component id="bDownload" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botaoDownload" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -160,12 +160,12 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="textoInstrumento" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textoOitava" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="selOitava" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textoBpm" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="selBpm" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="seletorOitava" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoBPM" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="seletorBPM" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textoVolume" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="selVolume" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="selInstrumento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="seletorVolume" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="seletorInstrumento" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="textoDigite" min="-2" max="-2" attributes="0"/>
@@ -175,19 +175,19 @@
                           <Component id="textoSelecione" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bSelecionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bConverter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botaoSelecionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botaoConverter" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="textoDownload" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bDownload" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="caixaNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textoNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textoMid" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botaoDownload" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="caixaNomeArquivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoNomeArquivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoMID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -228,7 +228,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="bConverter">
+                <Component class="javax.swing.JButton" name="botaoConverter">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -236,7 +236,7 @@
                     <Property name="text" type="java.lang.String" value="Converter"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConverterActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoConverterActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textoConfiguracoes">
@@ -261,7 +261,7 @@
                     <Property name="text" type="java.lang.String" value="Instrumento:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="textoBpm">
+                <Component class="javax.swing.JLabel" name="textoBPM">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -272,7 +272,7 @@
                     <Property name="text" type="java.lang.String" value="BPM:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="selInstrumento">
+                <Component class="javax.swing.JComboBox" name="seletorInstrumento">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -283,11 +283,11 @@
                         <StringItem index="1" value="Viol&#xe3;o"/>
                         <StringItem index="2" value="Guitarra"/>
                         <StringItem index="3" value="Violino"/>
-                        <StringItem index="4" value="Agogo"/>
+                        <StringItem index="4" value="Agog&#xf4;"/>
                         <StringItem index="5" value="Orquestra"/>
                         <StringItem index="6" value="Flauta de P&#xe3;"/>
                         <StringItem index="7" value="&#xd3;rg&#xe3;o"/>
-                        <StringItem index="8" value="Sinos tubulares"/>
+                        <StringItem index="8" value="Sinos"/>
                         <StringItem index="9" value="Cravo"/>
                       </StringArray>
                     </Property>
@@ -296,23 +296,23 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="selBpm">
+                <Component class="javax.swing.JComboBox" name="seletorBPM">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="7">
-                        <StringItem index="0" value="40"/>
-                        <StringItem index="1" value="70"/>
+                      <StringArray count="8">
+                        <StringItem index="0" value="60"/>
+                        <StringItem index="1" value="80"/>
                         <StringItem index="2" value="100"/>
-                        <StringItem index="3" value="130"/>
-                        <StringItem index="4" value="160"/>
-                        <StringItem index="5" value="190"/>
-                        <StringItem index="6" value="220"/>
+                        <StringItem index="3" value="120"/>
+                        <StringItem index="4" value="140"/>
+                        <StringItem index="5" value="160"/>
+                        <StringItem index="6" value="180"/>
+                        <StringItem index="7" value="210"/>
                       </StringArray>
                     </Property>
-                    <Property name="selectedIndex" type="int" value="2"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -329,7 +329,7 @@
                     <Property name="text" type="java.lang.String" value="Fa&#xe7;a o download da sua m&#xfa;sica:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="bDownload">
+                <Component class="javax.swing.JButton" name="botaoDownload">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -337,15 +337,18 @@
                     <Property name="text" type="java.lang.String" value="Download"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDownloadActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoDownloadActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="bSelecionar">
+                <Component class="javax.swing.JButton" name="botaoSelecionar">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Selecionar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSelecionarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSelecionarActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="textoSelecione">
@@ -359,14 +362,14 @@
                     <Property name="text" type="java.lang.String" value="Ou selecione o arquivo a ser convertido:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="caixaNome">
+                <Component class="javax.swing.JTextField" name="caixaNomeArquivo">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c5" green="b3" red="ae" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="textoNome">
+                <Component class="javax.swing.JLabel" name="textoNomeArquivo">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -374,7 +377,7 @@
                     <Property name="text" type="java.lang.String" value="Nome do arquivo:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="textoMid">
+                <Component class="javax.swing.JLabel" name="textoMID">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -404,25 +407,26 @@
                     <Property name="text" type="java.lang.String" value="Oitava:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="selVolume">
+                <Component class="javax.swing.JComboBox" name="seletorVolume">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="31"/>
-                        <StringItem index="1" value="63"/>
-                        <StringItem index="2" value="127"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="1"/>
+                        <StringItem index="1" value="2"/>
+                        <StringItem index="2" value="3"/>
+                        <StringItem index="3" value="4"/>
+                        <StringItem index="4" value="5"/>
                       </StringArray>
                     </Property>
-                    <Property name="selectedIndex" type="int" value="1"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="selOitava">
+                <Component class="javax.swing.JComboBox" name="seletorOitava">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -515,7 +519,7 @@
                               <Data value="$"/>
                               <Data value="; (ponto e v&#xed;rgula)"/>
                               <Data value=", (v&#xed;rgula)"/>
-                              <Data value="Quebra de linha (\\n)"/>
+                              <Data value="Quebra de linha"/>
                               <Data value="Vogais (I,i,O,o,U,u)"/>
                               <Data value="N&#xfa;mero"/>
                               <Data value="ELSE"/>
@@ -530,18 +534,18 @@
                               <Data value="Nota F&#xe1;"/>
                               <Data value="Nota Sol"/>
                               <Data value="Nota aleat&#xf3;ria"/>
-                              <Data value="Dobra o volume (se n&#xe3;o puder, volta volume inicial)"/>
-                              <Data value="Aumenta uma oitava (se n&#xe3;o puder, volta oitava inicial)"/>
-                              <Data value="Diminui uma oitava (se n&#xe3;o puder, volta oitava inicial)"/>
-                              <Data value="+50 BPM (m&#xe1;x 310)"/>
-                              <Data value="-50 BPM (min 60)"/>
-                              <Data value="Troca instrumento para Agogo"/>
+                              <Data value="Dobra o volume (se n&#xe3;o puder, volta ao volume inicial)"/>
+                              <Data value="Aumenta uma oitava (se n&#xe3;o puder, volta &#xe0; oitava inicial)"/>
+                              <Data value="Diminui uma oitava (se n&#xe3;o puder, volta &#xe0; oitava inicial)"/>
+                              <Data value="Aumenta BPM em 50 unidades (m&#xe1;x 210)"/>
+                              <Data value="Diminui BPM em 50 unidades (m&#xed;n 60)"/>
+                              <Data value="Troca instrumento para Agog&#xf4;"/>
                               <Data value="Troca instrumento para Guitarra"/>
                               <Data value="Troca instrumento para Orquestra"/>
-                              <Data value="Troca instrumento para Pan Flute"/>
-                              <Data value="Troca instrumento para Church Organ"/>
-                              <Data value="Troca instrumento para Tubular Bells"/>
-                              <Data value="Troca instrumento para Harpsichord"/>
+                              <Data value="Troca instrumento para Flauta de P&#xe3;"/>
+                              <Data value="Troca instrumento para &#xd3;rg&#xe3;o"/>
+                              <Data value="Troca instrumento para Sinos"/>
+                              <Data value="Troca instrumento para Cravo"/>
                               <Data value="Trocar instrumento para instrumento ATUAL + valor do d&#xed;gito"/>
                               <Data value="Se caractere anterior era NOTA (A at&#xe9; G), repete nota"/>
                               <Data value="Caso contr&#xe1;rio, pausa "/>

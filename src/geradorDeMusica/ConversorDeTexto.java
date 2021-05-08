@@ -3,43 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prototipotrabalho;
+package geradorDeMusica;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class InterpretadorDeTexto {
+public class ConversorDeTexto {
 
     private String textoInput;
+    private final StaccatoString staccato;
     private final List<String> listaDeStaccatos;
-    private int ibpm;
-    private int iinstrumento;
-    private int ivolume;
-    private int ioitava;
 
     private static final int CODIGO_A = 65;
     private static final int CODIGO_G = 71;
-    private static final int CODIGO_HARPSICHORD = 7;
-    private static final int CODIGO_TUBULAR_BELLS = 15;
-    private static final int CODIGO_CHURCH_ORGAN = 20;
-    private static final int CODIGO_GUITARRA = 26;
-    private static final int CODIGO_ORQUESTRA = 55;
-    private static final int CODIGO_PAN_FLUTE = 76;
-    private static final int CODIGO_AGOGO = 114;
+    
+    public static final int CODIGO_PIANO = 0;
+    public static final int CODIGO_HARPSICHORD = 7;
+    public static final int CODIGO_TUBULAR_BELLS = 15;
+    public static final int CODIGO_CHURCH_ORGAN = 20;
+    public static final int CODIGO_VIOLAO = 24;
+    public static final int CODIGO_GUITARRA = 26;
+    public static final int CODIGO_VIOLIN = 40;
+    public static final int CODIGO_ORQUESTRA = 55;
+    public static final int CODIGO_PAN_FLUTE = 76;
+    public static final int CODIGO_AGOGO = 114;
 
-    private final int CODIGO_PIANO = 0;
-    private final int CODIGO_VIOLAO = 24;
-    private final int CODIGO_VIOLIN = 40;
 
-
-    public InterpretadorDeTexto() {
+    public ConversorDeTexto(StaccatoString staccato) {
         this.textoInput = "";
+        this.staccato = staccato;
         this.listaDeStaccatos = new ArrayList<>();
     }
 
     public void defineTextoInput(String input) {
         this.textoInput = input;
+    }
+    
+    private boolean notaMusical(int codigoCaractere) {
+        return (codigoCaractere >= CODIGO_A) && (codigoCaractere <= CODIGO_G);
     }
 
     private void adicionaStaccatoNaLista(StaccatoString staccato) {
@@ -51,92 +53,23 @@ public class InterpretadorDeTexto {
         this.listaDeStaccatos.clear();
     }
 
-    private boolean notaMusical(int codigoCaractere) {
-        return (codigoCaractere >= CODIGO_A) && (codigoCaractere <= CODIGO_G);
-    }
-
     private char randomizaNota() {
 
         Random geradorDeNumeros = new Random();
         int numeroAleatorio = geradorDeNumeros.nextInt(6);
 
-        switch (numeroAleatorio) {
-            case 0 -> {
-                return 'A';
-            }
-            case 1 -> {
-                return 'B';
-            }
-            case 2 -> {
-                return 'C';
-            }
-            case 3 -> {
-                return 'D';
-            }
-            case 4 -> {
-                return 'E';
-            }
-            case 5 -> {
-                return 'F';
-            }
-            default -> {
-                return 'G';
-            }
-        }
-    }
-
-    private int getInstrumentoInicial(String instrumento) {
-        switch (instrumento) {
-            case "Piano":
-                return CODIGO_PIANO;
-            case "Violão":
-                return CODIGO_VIOLAO;
-            case "Guitarra":
-                return CODIGO_GUITARRA;
-            case "Violino":
-                return CODIGO_VIOLIN;
-            case "Agogo":
-                return CODIGO_AGOGO;
-            case "Orquestra":
-                return CODIGO_ORQUESTRA;
-            case "Flauta de Pã":
-                return CODIGO_PAN_FLUTE;
-            case "Órgão":
-                return CODIGO_CHURCH_ORGAN;
-            case "Sinos tubulares":
-                return CODIGO_TUBULAR_BELLS;
-            case "Cravo":
-                return CODIGO_HARPSICHORD;
-            default:
-                return CODIGO_PIANO;
-        }
-    }
-
-    private int getVolumeInicial(String volume) {
-        switch (volume) {
-            case "1":
-                return 31;
-            case "2":
-                return 55;
-            case "3":
-                return 79;
-            case "4":
-                return 103;
-            case "5":
-                return 127;
-            default:
-                return 79;
-        }
+        return switch (numeroAleatorio) {
+            case 0 -> 'A';
+            case 1 -> 'B';
+            case 2 -> 'C';
+            case 3 -> 'D';
+            case 4 -> 'E';
+            case 5 -> 'F';
+            default ->'G';
+        };
     }
 
     private void decompoeTextoEmStaccatos() {
-
-        StaccatoString staccato = new StaccatoString();
-        staccato.defineBPM(ibpm);
-        staccato.defineInstrumento(iinstrumento);
-        staccato.defineVolume(ivolume);
-        staccato.defineOitava(ioitava);
-
 
         char caractereAtual, caractereAnterior;
 
@@ -219,23 +152,12 @@ public class InterpretadorDeTexto {
         this.decompoeTextoEmStaccatos();
         String textoParametrizado = "";
 
-
-        for (String staccato : this.listaDeStaccatos) {
-            //System.out.println(staccato);
-            textoParametrizado = textoParametrizado + staccato;
+        for (String staccatoAtual : this.listaDeStaccatos) {
+            textoParametrizado = textoParametrizado + staccatoAtual;
         }
 
         this.apagaLista();
 
         return textoParametrizado;
-    }
-
-    public void defineConfiguracoesIniciais(String bpm, String instrumento, String volume, String oitava) {
-
-        this.ibpm = Integer.parseInt(bpm);
-        this.iinstrumento = getInstrumentoInicial(instrumento);
-        this.ivolume = getVolumeInicial(volume);
-        this.ioitava = Integer.parseInt(oitava);
-
     }
 }
