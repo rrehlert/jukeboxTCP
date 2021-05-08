@@ -360,8 +360,9 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         else {
             InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
             interpretador.defineTextoInput(caixaTexto.getText());
-            String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString(),
+            interpretador.defineConfiguracoesIniciais(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString(),
                     selVolume.getSelectedItem().toString(), selOitava.getSelectedItem().toString());
+            String textoMusical = interpretador.geraTextoParametrizado();
 
             TocadorDeMusica jukebox = new TocadorDeMusica();
             jukebox.defineStaccato(textoMusical);
@@ -389,8 +390,9 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         else {
             InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
             interpretador.defineTextoInput(caixaTexto.getText());
-            String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString(),
+            interpretador.defineConfiguracoesIniciais(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString(),
                     selVolume.getSelectedItem().toString(), selOitava.getSelectedItem().toString());
+            String textoMusical = interpretador.geraTextoParametrizado();
 
             if (caixaNome.getText().isEmpty())
                 JOptionPane.showMessageDialog(rootPane, "Insira o nome do arquivo", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
