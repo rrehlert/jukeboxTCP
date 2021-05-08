@@ -13,14 +13,17 @@ public class InterpretadorDeTexto {
     
     private String textoInput;
     private final List<String> listaDeStaccatos;
-    
+    private int ibpm;
+    private int iinstrumento;
+    private int ivolume;
+    private int ioitava;
     
     private static final int CODIGO_A = 65;
     private static final int CODIGO_G = 71;
     private static final int CODIGO_HARPSICHORD = 7;
     private static final int CODIGO_TUBULAR_BELLS = 15;
     private static final int CODIGO_CHURCH_ORGAN = 20;
-    private static final int CODIGO_GUITARRA = 24;
+    private static final int CODIGO_GUITARRA = 26;
     private static final int CODIGO_ORQUESTRA = 55;
     private static final int CODIGO_PAN_FLUTE = 76;
     private static final int CODIGO_AGOGO = 114;
@@ -78,20 +81,49 @@ public class InterpretadorDeTexto {
                 return CODIGO_GUITARRA;
             case "Violino":
                 return CODIGO_VIOLIN;
+            case "Agogo":
+                return CODIGO_AGOGO;
+            case "Orquestra":
+                return CODIGO_ORQUESTRA;
+            case "Flauta de Pã":
+                return CODIGO_PAN_FLUTE;
+            case "Órgão":
+                return CODIGO_CHURCH_ORGAN;
+            case "Sinos tubulares":
+                return CODIGO_TUBULAR_BELLS;
+            case "Cravo":
+                return CODIGO_HARPSICHORD;
             default:
                 return CODIGO_PIANO;
         }
     }
+
+    private int getVolumeInicial(String volume){
+        switch (volume){
+            case "1":
+                return 31;
+            case "2":
+                return 55;
+            case "3":
+                return 79;
+            case "4":
+                return 103;
+            case "5":
+                return 127;
+            default:
+                return 79;
+        }
+    }
     
-    private void decompoeTextoEmStaccatos(String bpm, String instrumento){
+    private void decompoeTextoEmStaccatos(){
         
         StaccatoString staccato = new StaccatoString();
-        
-        int ibpm = Integer.parseInt(bpm);
         staccato.defineBPM(ibpm);
-        int iinstrumento = getInstrumentoInicial(instrumento);
         staccato.defineInstrumento(iinstrumento);
-        
+        staccato.defineVolume(ivolume);
+        staccato.defineOitava(ioitava);
+
+
         char caractereAtual, caractereAnterior;
         
         for(int i = 0; i < this.textoInput.length(); i++){
@@ -168,11 +200,17 @@ public class InterpretadorDeTexto {
         this.adicionaStaccatoNaLista(staccato);
     }
     
-    public String geraTextoParametrizado(String bpm, String instrumento){
-        
-        this.decompoeTextoEmStaccatos(bpm,instrumento);
+    public String geraTextoParametrizado(String bpm, String instrumento, String volume, String oitava){
+
+        this.ibpm = Integer.parseInt(bpm);
+        this.iinstrumento = getInstrumentoInicial(instrumento);
+        this.ivolume = getVolumeInicial(volume);
+        this.ioitava = Integer.parseInt(oitava);
+
+        this.decompoeTextoEmStaccatos();
         String textoParametrizado = "";
-        
+
+
         for(String staccato : this.listaDeStaccatos){
             //System.out.println(staccato);
             textoParametrizado = textoParametrizado + staccato;

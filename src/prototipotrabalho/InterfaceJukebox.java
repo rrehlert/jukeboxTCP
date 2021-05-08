@@ -154,8 +154,8 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         textoOitava.setText("Oitava:");
 
         selVolume.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selVolume.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "31", "63", "127" }));
-        selVolume.setSelectedIndex(1);
+        selVolume.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        selVolume.setSelectedIndex(2);
 
         selOitava.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         selOitava.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
@@ -355,14 +355,18 @@ public class InterfaceJukebox extends javax.swing.JFrame {
     private void bConverterActionPerformed(java.awt.event.ActionEvent evt)  {//GEN-FIRST:event_bConverterActionPerformed
 
         // TODO add your handling code here:
-        InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
-        interpretador.defineTextoInput(caixaTexto.getText());
-        String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString());
+        if(caixaTexto.getText().isEmpty())
+            JOptionPane.showMessageDialog(rootPane, "Insira o texto a ser convertida", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+        else {
+            InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
+            interpretador.defineTextoInput(caixaTexto.getText());
+            String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString(),
+                    selVolume.getSelectedItem().toString(), selOitava.getSelectedItem().toString());
 
-
-        TocadorDeMusica jukebox = new TocadorDeMusica();
-        jukebox.defineStaccato(textoMusical);
-        jukebox.tocaMusica();
+            TocadorDeMusica jukebox = new TocadorDeMusica();
+            jukebox.defineStaccato(textoMusical);
+            jukebox.tocaMusica();
+        }
 
     }//GEN-LAST:event_bConverterActionPerformed
 
@@ -380,16 +384,25 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
     private void bDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDownloadActionPerformed
         // TODO add your handling code here:
-        InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
-        interpretador.defineTextoInput(caixaTexto.getText());
-        String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString());
+        if(caixaTexto.getText().isEmpty())
+            JOptionPane.showMessageDialog(rootPane, "Insira o texto a ser convertida", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+        else {
+            InterpretadorDeTexto interpretador = new InterpretadorDeTexto();
+            interpretador.defineTextoInput(caixaTexto.getText());
+            String textoMusical = interpretador.geraTextoParametrizado(selBpm.getSelectedItem().toString(), selInstrumento.getSelectedItem().toString(),
+                    selVolume.getSelectedItem().toString(), selOitava.getSelectedItem().toString());
 
-        GravadorDeMusica recorder = new GravadorDeMusica();
-        recorder.defineNomeArquivo(caixaNome.getText() + ".mid");
-        recorder.gravaMusica(textoMusical);
-        
-        JOptionPane.showMessageDialog(rootPane, "Download concluido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            if (caixaNome.getText().isEmpty())
+                JOptionPane.showMessageDialog(rootPane, "Insira o nome do arquivo", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
 
+            else {
+                GravadorDeMusica recorder = new GravadorDeMusica();
+                recorder.defineNomeArquivo(caixaNome.getText() + ".mid");
+                recorder.gravaMusica(textoMusical);
+
+                JOptionPane.showMessageDialog(rootPane, "Download concluido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_bDownloadActionPerformed
     /**
      * @param args the command line arguments
@@ -399,7 +412,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
