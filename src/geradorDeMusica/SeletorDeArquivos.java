@@ -44,12 +44,16 @@ public class SeletorDeArquivos {
         int result = fileChooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            //System.out.println("Selected file: " + selectedFile.getAbsolutePath());
             this.arquivo = selectedFile.getAbsolutePath();
         } else {
             this.arquivo = null;
         }
-        return this.leArquivo();
+        if (this.arquivo.substring(this.arquivo.lastIndexOf('.') + 1).equals("txt"))
+            return this.leArquivo();
+        else
+            return "vazio";
+
     }
 }
 

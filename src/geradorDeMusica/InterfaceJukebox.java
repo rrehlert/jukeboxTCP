@@ -396,9 +396,13 @@ public class InterfaceJukebox extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoConverterActionPerformed
 
     private void botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarActionPerformed
-       
+        String conteudo;
         SeletorDeArquivos seletor = new SeletorDeArquivos();
-        caixaTexto.setText(seletor.retornaConteudoSelecionado());
+        conteudo = seletor.retornaConteudoSelecionado();
+        if (conteudo.equals("vazio"))
+            JOptionPane.showMessageDialog(rootPane, "Formato do arquivo deve ser txt", "Nome do arquivo em branco", JOptionPane.INFORMATION_MESSAGE);
+        else
+            caixaTexto.setText(conteudo);
     }//GEN-LAST:event_botaoSelecionarActionPerformed
 
     private void botaoDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDownloadActionPerformed
