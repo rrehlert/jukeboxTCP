@@ -16,11 +16,11 @@ public class GravadorDeMusica {
     
     
     public GravadorDeMusica(){
-        this.nomeArquivo = "";
+        nomeArquivo = "";
     }
     
-    public void defineNomeArquivo(String nomeArquivo){
-        this.nomeArquivo = nomeArquivo;
+    public void defineNomeArquivo(String nome){
+        nomeArquivo = nome;
     }
    
     public void gravaMusica(String staccato){
@@ -28,7 +28,7 @@ public class GravadorDeMusica {
         Pattern pattern = new Pattern(staccato);
         
         try {
-            MidiFileManager.savePatternToMidi(pattern, new File(this.nomeArquivo));
+            MidiFileManager.savePatternToMidi(pattern, new File(nomeArquivo));
         } 
         catch (IOException ex) {}
     }

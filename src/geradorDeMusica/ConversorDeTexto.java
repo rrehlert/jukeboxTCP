@@ -31,13 +31,13 @@ public class ConversorDeTexto {
 
 
     public ConversorDeTexto(StaccatoString staccato) {
-        this.textoInput = "";
+        textoInput = "";
         this.staccato = staccato;
-        this.listaDeStaccatos = new ArrayList<>();
+        listaDeStaccatos = new ArrayList<>();
     }
 
     public void defineTextoInput(String input) {
-        this.textoInput = input;
+        textoInput = input;
     }
     
     private boolean notaMusical(int codigoCaractere) {
@@ -45,12 +45,12 @@ public class ConversorDeTexto {
     }
 
     private void adicionaStaccatoNaLista(StaccatoString staccato) {
-        this.listaDeStaccatos.add(staccato.geraStringParametrizada());
+        listaDeStaccatos.add(staccato.geraStringParametrizada());
         staccato.apagaSequenciaDeNotas();
     }
 
     private void apagaLista() {
-        this.listaDeStaccatos.clear();
+        listaDeStaccatos.clear();
     }
 
     private char randomizaNota() {
@@ -71,11 +71,12 @@ public class ConversorDeTexto {
 
     private void decompoeTextoEmStaccatos() {
 
-        char caractereAtual, caractereAnterior;
+        char caractereAtual;
+        char caractereAnterior;
 
-        for (int i = 0; i < this.textoInput.length(); i++) {
+        for (int i = 0; i < textoInput.length(); i++) {
 
-            caractereAtual = this.textoInput.charAt(i);
+            caractereAtual = textoInput.charAt(i);
             switch (caractereAtual) {
 
                 case 'A', 'B', 'C', 'D', 'E', 'F', 'G' -> staccato.adicionaNota(caractereAtual);
@@ -134,7 +135,7 @@ public class ConversorDeTexto {
                 }
                 default -> {
                     if (i != 0) {
-                        caractereAnterior = this.textoInput.charAt(i - 1);
+                        caractereAnterior = textoInput.charAt(i - 1);
                         if (notaMusical((int) caractereAnterior)) {
                             staccato.adicionaNota(caractereAnterior);
                             continue;
@@ -152,7 +153,7 @@ public class ConversorDeTexto {
         this.decompoeTextoEmStaccatos();
         String textoParametrizado = "";
 
-        for (String staccatoAtual : this.listaDeStaccatos) {
+        for (String staccatoAtual : listaDeStaccatos) {
             textoParametrizado = textoParametrizado + staccatoAtual;
         }
 

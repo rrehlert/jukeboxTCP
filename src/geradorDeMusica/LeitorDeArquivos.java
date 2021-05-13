@@ -10,50 +10,45 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class SeletorDeArquivos {
+public class LeitorDeArquivos {
 
-    private String arquivo;
+    private String caminhoArquivo;
     
     
-    public SeletorDeArquivos(){
-        this.arquivo = null;
-    }
-    
-    public String getArquivo(){
-        return this.arquivo;
+    public LeitorDeArquivos(){
+        caminhoArquivo = null;
     }
     
     private String leArquivo() {
-        if (this.arquivo != null) {
-            File entrada = new File(this.arquivo);
+        if (caminhoArquivo != null) {
+            File entrada = new File(caminhoArquivo);
             try {
-                Scanner novoArquivo = new Scanner(entrada);
-                novoArquivo.useDelimiter("\\Z");
-                return novoArquivo.next();
+                Scanner leitor = new Scanner(entrada);
+                leitor.useDelimiter("\\Z");
+                return leitor.next();
             } catch (FileNotFoundException e) {
                 System.out.println("Arquivo não encontrado");
             }
         }
-            return null;
+        return null;
     }
 
-    public String retornaConteudoSelecionado() {
+    public String retornaConteudo() {
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
         int result = fileChooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            //System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-            this.arquivo = selectedFile.getAbsolutePath();
+            caminhoArquivo = selectedFile.getAbsolutePath();
         } else {
-            this.arquivo = null;
+            caminhoArquivo = null;
         }
-        if (this.arquivo.substring(this.arquivo.lastIndexOf('.') + 1).equals("txt"))
+        if (caminhoArquivo.substring(caminhoArquivo.lastIndexOf('.') + 1).equals("txt")){
             return this.leArquivo();
-        else
-            return "vazio";
-
+        } else {
+            return "invalido";
+        }
     }
 }
 

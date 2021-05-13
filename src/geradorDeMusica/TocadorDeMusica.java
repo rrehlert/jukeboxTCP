@@ -13,7 +13,7 @@ public class TocadorDeMusica {
     
     
     public TocadorDeMusica(){
-        this.staccato = "";
+        staccato = "";
     }
     
     public void defineStaccato(String staccato){
@@ -22,7 +22,7 @@ public class TocadorDeMusica {
     
     public void tocaMusica(){
         Player player = new Player();
-        player.play(this.staccato);
+        player.play(staccato);
     }
 
 }

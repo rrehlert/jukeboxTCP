@@ -396,10 +396,11 @@ public class InterfaceJukebox extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoConverterActionPerformed
 
     private void botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarActionPerformed
+        
         String conteudo;
-        SeletorDeArquivos seletor = new SeletorDeArquivos();
-        conteudo = seletor.retornaConteudoSelecionado();
-        if (conteudo.equals("vazio"))
+        LeitorDeArquivos leitor = new LeitorDeArquivos();
+        conteudo = leitor.retornaConteudo();
+        if (conteudo.equals("invalido"))
             JOptionPane.showMessageDialog(rootPane, "Formato do arquivo deve ser txt", "Nome do arquivo em branco", JOptionPane.INFORMATION_MESSAGE);
         else
             caixaTexto.setText(conteudo);
@@ -420,7 +421,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
                 recorder.defineNomeArquivo(caixaNomeArquivo.getText() + ".mid");
                 recorder.gravaMusica(textoMusical);
 
-                JOptionPane.showMessageDialog(rootPane, "Download concluido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Download concluido!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_botaoDownloadActionPerformed

@@ -29,15 +29,15 @@ public class StaccatoString {
     
     
     public StaccatoString(){
-        this.oitava = OITAVA_DEFAULT;
-        this.instrumento = INSTRUMENTO_MINIMO;
-        this.volume = VOLUME_DEFAULT;
-        this.BPM = BPM_MINIMO;
-        this.sequenciaNotas = "";
+        oitava = OITAVA_DEFAULT;
+        instrumento = INSTRUMENTO_MINIMO;
+        volume = VOLUME_DEFAULT;
+        BPM = BPM_MINIMO;
+        sequenciaNotas = "";
     }
     
     private void resetaVolume(){
-        this.volume = VOLUME_DEFAULT;
+        volume = VOLUME_DEFAULT;
     }
     
     public void defineVolume(int volume){
@@ -47,11 +47,11 @@ public class StaccatoString {
     }
     
     public void dobraVolume(){
-        if((this.volume * 2) > VOLUME_MAXIMO){
+        if((volume * 2) > VOLUME_MAXIMO){
             this.resetaVolume();
         }
         else{
-            this.volume *= 2;
+            volume *= 2;
         }
     }
     
@@ -62,20 +62,20 @@ public class StaccatoString {
     }
     
     public void aumentaBPM(){
-        this.BPM += 50;
+        BPM += 50;
     }
     
     public void diminuiBPM(){
-        if((this.BPM - 50) <= BPM_MINIMO){
-            this.BPM = BPM_MINIMO;
+        if((BPM - 50) <= BPM_MINIMO){
+            BPM = BPM_MINIMO;
         }
         else{
-            this.BPM -= 50;
+            BPM -= 50;
         }
     }
     
     private void resetaOitava(){
-        this.oitava = OITAVA_DEFAULT;
+        oitava = OITAVA_DEFAULT;
     }
     
     public void defineOitava(int oitava){
@@ -85,20 +85,20 @@ public class StaccatoString {
     }
     
     public void aumentaOitava(){
-        if((this.oitava + 1) > OITAVA_MAXIMA){
+        if((oitava + 1) > OITAVA_MAXIMA){
             this.resetaOitava();
         }
         else{
-            this.oitava ++;
+            oitava ++;
         }
     }
     
     public void diminuiOitava(){
-        if((this.oitava - 1) <= OITAVA_MINIMA){
-            this.oitava = OITAVA_MINIMA;
+        if((oitava - 1) <= OITAVA_MINIMA){
+            oitava = OITAVA_MINIMA;
         }
         else{
-            this.oitava --;
+            oitava --;
         }
     }
     
@@ -109,29 +109,29 @@ public class StaccatoString {
     }
     
     public int retornaInstrumento(){
-        return this.instrumento;
+        return instrumento;
     }
     
     public void adicionaNota(char nota){
-        this.sequenciaNotas = this.sequenciaNotas + nota + " ";
+        sequenciaNotas = sequenciaNotas + nota + " ";
     }
     
     public void adicionaPausa(){
-        this.sequenciaNotas = this.sequenciaNotas + "R ";
+        sequenciaNotas = sequenciaNotas + "R ";
     }
     
     public void apagaSequenciaDeNotas(){
-        this.sequenciaNotas = "";
+        sequenciaNotas = "";
     }
     
     private String adicionaOitavasNaSequencia(){
-        return this.sequenciaNotas.replace(" ", this.oitava + " ");
+        return sequenciaNotas.replace(" ", this.oitava + " ");
     }
     
     public String geraStringParametrizada(){
         
         String sequenciaNotasComOitavas = adicionaOitavasNaSequencia();
-        return ("T" + this.BPM + " V0 I" + this.instrumento + " :CON(7," + this.volume + ") " + sequenciaNotasComOitavas);
+        return ("T" + BPM + " V0 I" + instrumento + " :CON(7," + volume + ") " + sequenciaNotasComOitavas);
     }
     
 }
