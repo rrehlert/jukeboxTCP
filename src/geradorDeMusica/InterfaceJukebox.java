@@ -400,8 +400,8 @@ public class InterfaceJukebox extends javax.swing.JFrame {
         String conteudo;
         LeitorDeArquivos leitor = new LeitorDeArquivos();
         conteudo = leitor.retornaConteudo();
-        if (conteudo.equals("invalido"))
-            JOptionPane.showMessageDialog(rootPane, "Formato do arquivo deve ser txt", "Nome do arquivo em branco", JOptionPane.INFORMATION_MESSAGE);
+        if (conteudo.equals("-1"))
+            JOptionPane.showMessageDialog(rootPane, "Selecione um arquivo txt", "Nome do arquivo em branco", JOptionPane.INFORMATION_MESSAGE);
         else
             caixaTexto.setText(conteudo);
     }//GEN-LAST:event_botaoSelecionarActionPerformed

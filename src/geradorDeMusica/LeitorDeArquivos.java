@@ -44,11 +44,14 @@ public class LeitorDeArquivos {
         } else {
             caminhoArquivo = null;
         }
-        if (caminhoArquivo.substring(caminhoArquivo.lastIndexOf('.') + 1).equals("txt")){
-            return this.leArquivo();
-        } else {
-            return "invalido";
+        if (result == JFileChooser.APPROVE_OPTION) {
+            if (caminhoArquivo.substring(caminhoArquivo.lastIndexOf('.') + 1).equals("txt")) {
+                return this.leArquivo();
+            } else {
+                return "-1";
+            }
         }
+        return "-1";
     }
 }
 
