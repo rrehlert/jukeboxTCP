@@ -102,6 +102,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
         seletorBPM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         seletorBPM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "60", "80", "100", "120", "140", "160", "180", "210" }));
+        seletorBPM.setSelectedIndex(2);
 
         textoDownload.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         textoDownload.setForeground(new java.awt.Color(204, 204, 204));
@@ -145,6 +146,7 @@ public class InterfaceJukebox extends javax.swing.JFrame {
 
         seletorVolume.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         seletorVolume.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        seletorVolume.setSelectedIndex(2);
 
         seletorOitava.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         seletorOitava.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
